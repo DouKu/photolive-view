@@ -35,12 +35,19 @@ html, body {
     .title-container {
         position: relative;
         h4 {
+            position: relative;
             display: inline-block;
-            height: 104px;
-            line-height: 104px;
             font-size: 72px;
             color: #646466;
             letter-spacing: 0;
+            &::before {
+                content: '个相册';
+                position: absolute;
+                display: inline-block;
+                font-size: 18px;
+                right: -70px;
+                bottom: 10px;
+            }
         }
         .search {
             position: absolute;
@@ -73,7 +80,7 @@ html, body {
         margin-right: -81px;
         font-size: 0;
         overflow: hidden;
-        li {
+        &>li {
             display: inline-block;
             padding-right: 81px;
             padding-bottom: 110px;
@@ -88,16 +95,29 @@ html, body {
         .card-add {
             @extend .card;
             border: 4px dashed $borderColor;
+            span {
+                display: inline-block;
+                color: $borderColor;
+                margin-top: 75px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                font-size: 18px;
+            }
+            &:hover {
+                .icon-add {
+                    background-image: url(../../assets/images/icons/add.svg);
+                }
+            }
         }
         .card-item {
             position: relative;
-            box-shadow: 1px 20px 30px 0 rgba(0,0,0,.2);
+            box-shadow: 0 20px 6px -10px rgba(0,0,0,.23), 0 40px 6px -20px rgba(0,0,0,.16);
             @extend .card;
             img  {
                 width: 100%;
                 height: 100%;
             }
-            .card-footer {
+            .card-footer-base {
                 position: absolute;
                 left: 0;
                 right: 0;
@@ -108,6 +128,32 @@ html, body {
                 font-size: 18px;
                 color: $textColor;
                 background: rgba(0,0,0,0.50);
+            }
+            .card-footer {
+                @extend .card-footer-base;
+                opacity: 1;
+                transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1) .1s;
+            }
+            .card-footer-btns {
+                @extend .card-footer-base;
+                bottom: -60px;
+                padding: 13px 0;
+                font-size: 0;
+                margin-right: -47px;
+                transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+                li {
+                    display: inline-block;
+                    padding-right: 47px;
+                }
+            }
+            &:hover {
+                .card-footer {
+                    opacity: 0;
+                }
+                .card-footer-btns {
+                    display: block;
+                    bottom: 0;
+                }
             }
         }
     }
@@ -141,4 +187,60 @@ html, body {
             right: 0;
         }
     }
+}
+
+.icon {
+    display: inline-block;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.icon-search {
+    @extend .icon;
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-image: url(../../assets/images/icons/search.svg);
+}
+
+.icon-add {
+    @extend .icon;
+    margin-left: 50%;
+    margin-top: 101px;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    background-image: url(../../assets/images/icons/add.svg);
+}
+
+.icon-edit {
+    @extend .icon;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../assets/images/icons/edit.svg);
+}
+
+.icon-menu {
+    @extend .icon;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../assets/images/icons/menu.svg);
+}
+
+.icon-delete {
+    @extend .icon;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../assets/images/icons/delete.svg);
+}
+
+.icon-graph {
+    @extend .icon;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../assets/images/icons/graph.svg);
 }
