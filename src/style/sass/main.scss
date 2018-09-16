@@ -77,18 +77,18 @@ html, body {
 
     .card-container {
         margin-top: 70px;
-        margin-right: -81px;
+        margin-right: -60px;
         font-size: 0;
         overflow: hidden;
         &>li {
             display: inline-block;
-            padding-right: 81px;
-            padding-bottom: 110px;
+            padding-right: 60px;
+            padding-bottom: 90px;
         }
         .card {
             display: inline-block;
-            width: 320px;
-            height: 420px;
+            width: 234px;
+            height: 308px;
             border-radius: 6px;
             overflow: hidden;
         }
@@ -98,7 +98,7 @@ html, body {
             span {
                 display: inline-block;
                 color: $borderColor;
-                margin-top: 75px;
+                margin-top: 58px;
                 margin-left: 50%;
                 transform: translateX(-50%);
                 font-size: 18px;
@@ -112,10 +112,13 @@ html, body {
         .card-item {
             position: relative;
             box-shadow: 0 20px 6px -10px rgba(0,0,0,.23), 0 40px 6px -20px rgba(0,0,0,.16);
+            overflow: hidden;
             @extend .card;
             img  {
-                width: 100%;
-                height: 100%;
+                width: auto;
+                height: auto;
+                max-width: 200%;
+                max-height: 200%;
             }
             .card-footer-base {
                 position: absolute;
@@ -125,7 +128,7 @@ html, body {
                 height: 60px;
                 line-height: 60px;
                 text-align: center;
-                font-size: 18px;
+                font-size: 14px;
                 color: $textColor;
                 background: rgba(0,0,0,0.50);
             }
@@ -143,7 +146,7 @@ html, body {
                 transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
                 li {
                     display: inline-block;
-                    padding-right: 47px;
+                    padding-right: 34.5px;
                 }
             }
             &:hover {
@@ -210,37 +213,38 @@ html, body {
 .icon-add {
     @extend .icon;
     margin-left: 50%;
-    margin-top: 101px;
+    margin-top: 82px;
     transform: translateX(-50%);
-    width: 120px;
-    height: 120px;
+    width: 72px;
+    height: 72px;
     background-image: url(../../assets/images/icons/add.svg);
+}
+
+.card-footer-icon {
+    width: 23.5px;
+    height: 23.5px;
 }
 
 .icon-edit {
     @extend .icon;
-    width: 32px;
-    height: 32px;
+    @extend .card-footer-icon;
     background-image: url(../../assets/images/icons/edit.svg);
 }
 
 .icon-menu {
     @extend .icon;
-    width: 32px;
-    height: 32px;
+    @extend .card-footer-icon;
     background-image: url(../../assets/images/icons/menu.svg);
 }
 
 .icon-delete {
     @extend .icon;
-    width: 32px;
-    height: 32px;
+    @extend .card-footer-icon;
     background-image: url(../../assets/images/icons/delete.svg);
 }
 
 .icon-graph {
     @extend .icon;
-    width: 32px;
-    height: 32px;
+    @extend .card-footer-icon;
     background-image: url(../../assets/images/icons/graph.svg);
 }
